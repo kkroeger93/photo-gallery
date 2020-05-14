@@ -12,7 +12,7 @@ export function usePhotoGallery() {
     const takePhoto = async () => {
         try {
 
-            const CameraPhoto = await getPhoto({
+            const cameraPhoto = await getPhoto({
                 resultType: CameraResultType.Uri,
                 source: CameraSource.Camera,
                 quality: 100
@@ -21,7 +21,7 @@ export function usePhotoGallery() {
             const fileName = new Date().getTime() + '.jpeg';
             const newPhotos = [{
                 filepath: fileName,
-                webviewPath: CameraPhoto.webPath
+                webviewPath: cameraPhoto.webPath
             }, ...photos];
             setPhotos(newPhotos)
 
